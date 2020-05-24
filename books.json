@@ -8,6 +8,13 @@
 
   { 
         "id": "12",
+        "name":"El recuerdo",
+        "authorId": "1"   
+
+},
+
+  { 
+        "id": "13",
         "name":"La madre de Frankenstein",
         "authorId": "2"   
 
