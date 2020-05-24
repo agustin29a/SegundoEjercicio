@@ -1,15 +1,15 @@
 [
     { 
-        "id": "1",
+        "id": "11",
         "name":"Lo mucho que te ame",
-        "author": "Eduardo Sacheri"   
+        "authorId": "1"   
 
   },
 
   { 
-        "id": "2",
+        "id": "12",
         "name":"La madre de Frankenstein",
-        "author": "Almudena Grandes"   
+        "authorId": "2"   
 
     }
 

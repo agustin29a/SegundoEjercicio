@@ -3,6 +3,7 @@ const router = Router();
 const _= require('lodash');
 
 const book1 = require('../books.json');
+const author1 = require('../authors.json');
 
 router.get('/book', (req, res) => {
     res.json(book1);
@@ -11,8 +12,13 @@ router.get('/book', (req, res) => {
 
 //Metodo para crear json en memoria
 router.post('/book', (req, res) => {
-    const {id, name, author} = req.body;
-    if (id && name && author){
+    const {id, name, authorId} = req.body;
+    let flat = false;
+    _.each(author1,(p) =>{
+        if(p.id == authorId) flat = true;
+    }) 
+    
+    if (id && name && flat){
         const newMovie = {...req.body};
         book1.push(newMovie);
         res.json({'added': 'ok'});
@@ -37,11 +43,11 @@ router.delete('/book/:id', (req, res) => {
 //Metodo para modificar json a traves del ip
 router.put('/book/:id', (req, res) => {
     const id = req.params.id;
-    const {name,author} = req.body;
+    const {name,authorId} = req.body;
     _.each(book1, (bo) =>{
         if (bo.id == id){
                 bo.name = name;
-                bo.author = author;       
+                bo.author = authorId;       
         }
     })
     res.json({'modified':'ok'});

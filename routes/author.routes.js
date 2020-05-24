@@ -3,6 +3,7 @@ const router = Router();
 const _= require('lodash');
 
 const author1 = require('../authors.json');
+const book1 = require('../books.json');
 
 router.get('/author', (req, res) => {
     res.json(author1);
@@ -31,6 +32,11 @@ router.delete('/author/:id', (req, res) => {
      _.remove(author1, (autho) =>{
          return autho.id == id;
      })
+
+     _.remove(book1, (bo) =>{
+        return bo.authorId == id;
+    })
+
      res.json(author1);
     });
 
