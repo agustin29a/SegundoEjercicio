@@ -2,21 +2,21 @@
     { 
         "id": "11",
         "name":"Lo mucho que te ame",
-        "authorId": "1"   
+        "authorId": 1  
 
   },
 
   { 
         "id": "12",
         "name":"El recuerdo",
-        "authorId": "1"   
+        "authorId": 1  
 
-},
+    },
 
   { 
         "id": "13",
         "name":"La madre de Frankenstein",
-        "authorId": "2"   
+        "authorId": 2  
 
     }
 

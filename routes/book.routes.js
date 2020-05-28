@@ -5,33 +5,17 @@ const _= require('lodash');
 const book1 = require('../books.json');
 const author1 = require('../authors.json');
 
-router.get('/book/:id', (req, res) => {
-    const id = req.params.id;
-    let array = [];
-    let fla = false
-    
-    _.each(author1, (p) =>{
-        if(p.id == id){
-            array.push(p);
-            fla = true
-        }
-        });
 
-    if(fla){
-        _.each(book1,(p)=>{
-            if (p.authorId == id){
-                array.push(p);
-            }   
-        });
-        
-        res.json(array); 
-    } else {
-        res.status(400).json({'statusCode': 'Bad Request'});
-    }
-   
+router.get('/book', (req, res) => {
+    _.each(book1,p =>{
+
+        p.author = _.filter(author1, ['id', p.authorId]);
+    });
+    
+    res.json(book1);
+
  
 });
-
 
 //Metodo para crear json en memoria
 router.post('/book', (req, res) => {
